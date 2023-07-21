@@ -1,1 +1,20 @@
-<p>book-item works!</p>
+<div  class="card">
+  <div class="row">
+    <div class="card col">
+      <h3> {{book.title}} </h3>
+      <h5> {{book.author}} </h5>
+      <p> ISBN:{{book.ISBN}} </p>
+      <p>Year of publication: {{book.yearOfPublication}}</p>
+      <p>publisher: {{book.publisher}} </p>
+      <div class="row">
+        <div class="col-2">
+          <a [routerLink]="['/books/', book._id]" >Details</a>
+        </div>
+        <div class="col-2">
+          <a [routerLink]="['/add-book/', book._id]">Edit</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

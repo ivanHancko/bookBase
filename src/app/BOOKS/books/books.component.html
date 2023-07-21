@@ -1,1 +1,5 @@
-<p>books works!</p>
+<div class="row">
+  <div class="col-6"  *ngFor="let item of books.results">
+    <app-book-item [book]= "item" ></app-book-item>
+  </div>
+</div>
