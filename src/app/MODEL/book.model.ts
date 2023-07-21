@@ -1,5 +1,4 @@
 
-
 export class BookSearchResult {
     count: number;
     results: Book[];

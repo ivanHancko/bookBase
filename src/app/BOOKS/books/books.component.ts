@@ -15,7 +15,7 @@ export class BooksComponent implements OnInit {
     page: 1,
     pageSize: 10,
     sort: "title",
-    sortDirection: 'asc',
+    // sortDirection: 'asc',
   }
 
   constructor(private service: BookService) { }
