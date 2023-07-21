@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
-import { BookSearchResult } from '../MODEL/book.model';
+import { Book, BookSearchResult } from '../MODEL/book.model';
 
 const url = 'http://localhost:3000/api/books'
 
@@ -27,5 +27,9 @@ export class BookService {
     return this.http.get(url, options).pipe(map((data:any)=> {
       return new BookSearchResult(data)
     }))
+  }
+
+  addBook(book: Book) : Observable<any> {
+    return this.http.post(url, book)
   }
 }
