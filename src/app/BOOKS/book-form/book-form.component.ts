@@ -28,17 +28,40 @@ export class BookFormComponent implements OnInit {
   constructor(private service: BookService, private router: Router, private route:ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.getOne()
   }
 
   addBook(): void {
     let book: Book = new Book(this.form.value)
-
-    this.service.addBook(book).subscribe({
-      next :(book: any) => {
-        console.log(book);
-        this.router.navigate(['/books/', book._id]);
+    let id: number = Number(this.route.snapshot.params['id']);
+    if (id) {
+      book._id = id;
+      this.service.update(book).subscribe({
+        next: (response: any) => {
+          this.router.navigate(['books']);
         }
-    });
+      });
+    }else{
+      this.service.addBook(book).subscribe({
+        next :(book: any) => {
+          console.log(book);
+          this.router.navigate(['/books/', book._id]);
+          }
+      });
+    }
+  }
+
+  getOne () :void {
+    let id:number = Number(this.route.snapshot.params['id'])
+    if(id){
+      this.service.getOne(id).subscribe({
+        next: (data:Book) => {
+          console.log(data);
+          let movie: Book = new Book(data)
+          this.form.patchValue(movie)
+        }
+      })
+    }
   }
 
 }

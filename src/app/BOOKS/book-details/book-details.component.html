@@ -1,1 +1,9 @@
-<p>book-details works!</p>
+
+<div class="card" >
+  <h4> {{book.title}}</h4>
+  <h5>{{book.author}}</h5>
+  <p>{{book.ISBN}}</p>
+  <p>Year of publication: {{book.yearOfPublication}} </p>
+  <p>publisher: {{book.publisher}} </p>
+  <a  [routerLink]="['/add-book/', book._id]"> Edit</a>
+</div>

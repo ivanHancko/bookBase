@@ -32,4 +32,14 @@ export class BookService {
   addBook(book: Book) : Observable<any> {
     return this.http.post(url, book)
   }
+
+  getOne(id:number): Observable<Book> {
+    return this.http.get(url + '/' + id).pipe(map((data:any) =>{
+      return new Book(data)
+    }))
+  }
+
+  update(book: Book): Observable<any> {
+    return this.http.put(url + "/" + book._id, book);
+  }
 }
