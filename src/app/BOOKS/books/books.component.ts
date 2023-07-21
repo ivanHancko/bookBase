@@ -11,6 +11,13 @@ export class BooksComponent implements OnInit {
 
   books: BookSearchResult = new BookSearchResult()
 
+  params = {
+    page: 1,
+    pageSize: 10,
+    sort: "title",
+    sortDirection: 'asc',
+  }
+
   constructor(private service: BookService) { }
 
   ngOnInit(): void {
@@ -18,12 +25,23 @@ export class BooksComponent implements OnInit {
   }
 
   getBooks(): void {
-    this.service.getBooks().subscribe({
+    this.service.getBooks(this.params).subscribe({
       next: (data:BookSearchResult) => {
         console.log(data);
         this.books = data
       }
     })
+  }
+
+  onPageChanged(newPage:number) : void{
+    this.params.page = newPage;
+    this.getBooks();
+  }
+
+  onPageSizeChanged(newPageSize:number) : void{
+    this.params.pageSize = newPageSize + 10;
+    this.params.page = 1;
+    this.getBooks();
   }
 
 }

@@ -3,3 +3,11 @@
     <app-book-item [book]= "item" ></app-book-item>
   </div>
 </div>
+
+<app-pagination
+  [page]="params.page"
+  [pageSize]="params.pageSize"
+  [collectionSize]="books.count"
+  (pageChange)="onPageChanged($event)"
+  (pageSizeChange)="onPageSizeChanged($event)">
+</app-pagination>

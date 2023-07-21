@@ -13,6 +13,7 @@ import { BookItemComponent } from './BOOKS/book-item/book-item.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PaginationComponent } from './pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BooksComponent,
     BookDetailsComponent,
     BookFormComponent,
-    BookItemComponent
+    BookItemComponent,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,
