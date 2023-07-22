@@ -22,6 +22,7 @@ export class BookService {
           .set("pageSize", params.pageSize || "")
           .set("sort", params.sort || "")
           .set('sortDirection', params.sortDirection)
+          .set('filter', JSON.stringify(params.filter)),
         }
       }
 

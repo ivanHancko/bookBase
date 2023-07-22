@@ -14,6 +14,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PaginationComponent } from './pagination/pagination.component';
+import { SearchComponent } from './SEARCH/search.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { PaginationComponent } from './pagination/pagination.component';
     BookDetailsComponent,
     BookFormComponent,
     BookItemComponent,
-    PaginationComponent
+    PaginationComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

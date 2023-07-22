@@ -15,7 +15,10 @@ export class BooksComponent implements OnInit {
     page: 1,
     pageSize: 10,
     sort: "title",
-    // sortDirection: 'asc',
+    sortDirection: 'asc',
+    filter: {
+      author: ''
+    },
   }
 
   constructor(private service: BookService) { }
@@ -41,6 +44,11 @@ export class BooksComponent implements OnInit {
   onPageSizeChanged(newPageSize:number) : void{
     this.params.pageSize = newPageSize + 10;
     this.params.page = 1;
+    this.getBooks();
+  }
+
+  onSearch(data: any): void {
+    this.params.filter.author =data;
     this.getBooks();
   }
 
